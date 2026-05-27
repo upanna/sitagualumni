@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>သီတဂူကျောင်းသားဟောင်းများအသင်း | Sitagu Alumni</title>
+    <style>
+        /* အခြေခံ Style များ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Pyidaungsu', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth; /* Menu နှိပ်ရင် အိအိလေး ဆင်းသွားစေရန် */
+        }
+
+        body {
+            background-color: #fcfbf7;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header နှင့် Navigation Menu */
+        header {
+            background-color: #5c0612; /* ကတ္တီပါနီညိုရောင် */
+            color: #f1c40f; /* ရွှေအိုရောင် */
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            width: 85%;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: 0.3s;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        nav ul li a:hover {
+            color: #5c0612;
+            background-color: #f1c40f;
+        }
+
+        /* Banner အလှပြကွက် */
+        .hero {
+            background: linear-gradient(rgba(92, 6, 18, 0.7), rgba(92, 6, 18, 0.7)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 350px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #white;
+        }
+
+        .hero-text {
+            color: #fff;
+        }
+
+        .hero-text h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: #f1c40f;
+        }
+
+        /* Content Sections (စာပိုဒ်များ) */
+        section {
+            padding: 80px 0;
+            width: 80%;
+            margin: auto;
+            border-bottom: 1px solid #ddd;
+        }
+
+        section h2 {
+            color: #5c0612;
+            margin-bottom: 20px;
+            font-size: 28px;
+            border-left: 5px solid #f1c40f;
+            padding-left: 15px;
+        }
+
+        /* ဓာတ်ပုံကွက်လပ်နမူနာ */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .gallery-item {
+            background-color: #eee;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #777;
+            border-radius: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: #bbb;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <h1>SITAGU ALUMNI</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">ပင်မစာမျက်နှာ</a></li>
+                    <li><a href="#about">အသင်းအကြောင်း</a></li>
+                    <li><a href="#activities">လှုပ်ရှားမှုများ</a></li>
+                    <li><a href="#gallery">မှတ်တမ်းဓာတ်ပုံ</a></li>
+                    <li><a href="#contact">ဆက်သွယ်ရန်</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero" id="home">
+        <div class="hero-text">
+            <h2>သီတဂူကမ္ဘာ့ဗုဒ္ဓတက္ကသိုလ် ကျောင်းသားဟောင်းများအသင်း</h2>
+            <p>ဓမ္မဓဇ ဆုံစည်းရာ ကွန်ရက်စာမျက်နှာမှ လှိုက်လှဲစွာ ကြိုဆိုပါသည်။</p>
+        </div>
+    </div>
+
+    <section id="about">
+        <h2>အသင်းအကြောင်း (About Us)</h2>
+        <p>သီတဂူကမ္ဘာ့ဗုဒ္ဓတက္ကသိုလ်များမှ ဘွဲ့ရရှိခဲ့ကြသော ရဟန်း၊ သီလရှင်နှင့် လူပုဂ္ဂိုလ် ကျောင်းသားဟောင်းများအကြား သံယောဇဉ်ခိုင်မြဲစေရန်၊ ဓမ္မဗဟုသုတများ အပြန်အလှန် ဖလှယ်နိုင်ရန်နှင့် သီတဂူဆရာတော်ဘုရားကြီး၏ သာသနာပြုလုပ်ငန်းများတွင် တစ်ထောင့်တစ်နေရာမှ ပါဝင်ကူညီနိုင်ရန် ရည်ရွယ်၍ ဤကျောင်းသားဟောင်းများအသင်းကို တည်ထောင်ရခြင်း ဖြစ်ပါသည်။</p>
+    </section>
+
+    <section id="activities">
+        <h2>လှုပ်ရှားမှုများ (Activities)</h2>
+        <p>ကျွန်ုပ်တို့ ကျောင်းသားဟောင်းများအသင်းသည် နှစ်စဉ် ကျောင်းသားဟောင်းများ ပြန်ဆုံပွဲ အခမ်းအနားများ ကျင်းပခြင်း၊ သီတဂူဆေးရုံတော်များတွင် သွားရောက်လှူဒါန်းခြင်း၊ သာသနာပြုလုပ်ငန်းများတွင် စုပေါင်းလုပ်အားဒါနပြုခြင်းနှင့် ပညာဒါနဟောပြောပွဲများကို စဉ်ဆက်မပြတ် လုပ်ဆောင်လျက် ရှိပါသည်။</p>
+    </section>
+
+    <section id="gallery">
+        <h2>မှတ်တမ်းဓာတ်ပုံ (Gallery)</h2>
+        <p>ကျောင်းသားဟောင်းများ၏ လှုပ်ရှားမှုနှင့် အမှတ်တရ မှတ်တမ်းဓာတ်ပုံများကို ဤနေရာတွင် မကြာမီ ထည့်သွင်းဖော်ပြပေးသွားမည် ဖြစ်ပါသည်။</p>
+        <div class="gallery-grid">
+            <div class="gallery-item">[ အမှတ်တရပုံရိပ် ၁ ]</div>
+            <div class="gallery-item">[ အမှတ်တရပုံရိပ် ၂ ]</div>
+            <div class="gallery-item">[ အမှတ်တရပုံရိပ် ၃ ]</div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>ဆက်သွယ်ရန် (Contact Us)</h2>
+        <p>သီတဂူကျောင်းသားဟောင်းများအသင်းနှင့် ပတ်သက်ပြီး စုံစမ်းမေးမြန်းလိုပါက အောက်ပါလိပ်စာအတိုင်း ဆက်သွယ်နိုင်ပါသည်။</p>
+        <p style="margin-top: 10px;">
+            <strong>Email:</strong> info@sitagualumni.org<br>
+            <strong>Phone:</strong> ၀၉-၁၂၃၄၅၆၇၈၉<br>
+            <strong>Address:</strong> သီတဂူကမ္ဘာ့ဗုဒ္ဓတက္ကသိုလ်၊ စစ်ကိုင်းတောင်ရိုး၊ စစ်ကိုင်းမြို့။
+        </p>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Sitagu Alumni Association. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
