@@ -51,17 +51,19 @@
             padding: 12px 0;
         }
 
-        /* Logo Configuration with logo.png */
         .logo-box {
             display: flex;
             align-items: center;
             gap: 12px;
         }
 
+        /* logo.jpg ကို ဝိုင်းဝိုင်းလေးနဲ့ စတိုင်ထုတ်ထားပါတယ် */
         .logo-img {
             height: 55px;
-            width: auto;
-            object-fit: contain;
+            width: 55px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid var(--secondary-color);
         }
 
         .logo h1 {
@@ -102,14 +104,14 @@
             font-weight: 500;
         }
 
-        /* Premium Hero Section with sitagu1.jpg background */
+        /* Premium Hero Section - စာမပါသော sitagu3.jpeg ကို နောက်ခံထားခြင်း */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(92, 6, 18, 0.8)), 
-                        url('sitagu1.jpg');
+            background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(92, 6, 18, 0.75)), 
+                        url('sitagu3.jpeg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            height: 480px;
+            height: 500px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -122,7 +124,7 @@
             font-weight: 700;
             color: var(--secondary-color);
             margin-bottom: 15px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            text-shadow: 0 2px 5px rgba(0,0,0,0.7);
         }
 
         .hero-text p {
@@ -135,7 +137,7 @@
 
         /* Styled Sections */
         section {
-            padding: 100px 20px;
+            padding: 80px 20px;
             max-width: 900px;
             margin: auto;
         }
@@ -177,52 +179,56 @@
             border-left: 4px solid var(--primary-color);
         }
 
-        /* Modern Gallery Grid */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-
-        .gallery-item {
-            background-color: #fff;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
-            border: 1px solid #f0f0f0;
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-5px);
-        }
-
-        /* Real Image Containers */
-        .gallery-img-box {
-            height: 190px;
+        /* AUTOMATIC IMAGE SLIDER (လှုပ်ရှားပုံစနစ်) */
+        .slider-container {
+            position: relative;
             width: 100%;
+            height: 400px;
+            margin-top: 30px;
             overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border: 3px solid var(--secondary-color);
         }
 
-        .gallery-img-box img {
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s ease;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
         }
 
-        .gallery-item:hover .gallery-img-box img {
-            transform: scale(1.05);
-        }
-
-        .gallery-desc {
-            padding: 15px;
-            font-size: 14px;
-            color: var(--text-light);
+        .slide-caption {
+            position: relative;
+            z-index: 2;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+            width: 100%;
+            padding: 40px 20px 20px 20px;
+            color: #fff;
             text-align: center;
-            font-weight: 500;
-            border-top: 1px solid #f9f9f9;
+        }
+
+        .slide-caption h3 {
+            color: var(--secondary-color);
+            font-size: 20px;
+            margin-bottom: 5px;
         }
 
         /* Contact Cards */
@@ -261,7 +267,6 @@
             border-top: 3px solid var(--secondary-color);
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
             .nav-container {
                 flex-direction: column;
@@ -275,20 +280,18 @@
             .hero-text h2 {
                 font-size: 26px;
             }
-            section {
-                padding: 60px 20px;
+            .slider-container {
+                height: 250px;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header & Menu Bar -->
     <header>
         <div class="nav-container">
             <div class="logo-box">
-                <!-- logo.png integration -->
-                <img src="logo.png" alt="Sitagu Alumni Logo" class="logo-img">
+                <img src="logo.jpg" alt="Sitagu Alumni Logo" class="logo-img">
                 <div class="logo">
                     <h1>SITAGU ALUMNI</h1>
                     <span>YANGON ASSOCIATION</span>
@@ -306,7 +309,6 @@
         </div>
     </header>
 
-    <!-- Hero Banner Section with sitagu1.jpg -->
     <div class="hero" id="home">
         <div class="hero-text">
             <h2>သီတဂူကမ္ဘာ့ဗုဒ္ဓတက္ကသိုလ် (ရန်ကုန်)</h2>
@@ -314,7 +316,6 @@
         </div>
     </div>
 
-    <!-- Section 1: About Us -->
     <section id="about">
         <div class="section-title">
             <h2>အသင်းအကြောင်း</h2>
@@ -322,45 +323,45 @@
         <p class="content-p">သီတဂူကမ္ဘာ့ဗုဒ္ဓတက္ကသိုလ် (ရန်ကုန်)မှ ကျောင်းသားဟောင်းများအချင်းချင်း စည်းလုံးမှုရှိပြီး အဆက်အသွယ်မပြတ်စေရန်၊ ကျန်းမာရေးဆိုင်ရာ အခက်အခဲများ ပေါ်ပေါက်လာပါက အသင်းအဖွဲ့မှ ထောက်ပံ့လှူဒါန်းပေးရန်နှင့် ဘာသာသာသနာအကျိုးပြုလုပ်ငန်းများတွင် ရန်ကုန် သီတဂူကမ္ဘာ့ဗုဒ္ဓတက္ကသိုလ် ကျောင်းသားဟောင်းများစုစည်းကာ တစ်ထောင့်တစ်နေရာမှ အင်တိုက်အားတိုက် ပါဝင်ကူညီနိုင်ရန် ရည်ရွယ်၍ ဤအသင်းကို တည်ထောင်ရခြင်း ဖြစ်ပါသည်။</p>
     </section>
 
-    <!-- Section 2: Activities -->
     <section id="activities">
         <div class="section-title">
             <h2>လှုပ်ရှားမှုများ</h2>
         </div>
-        <p class="content-p">ကျွန်ုပ်တို့ ရန်ကုန်အခြေစိုက် ကျောင်းသားဟောင်းများအသင်းသည် နှစ်စဉ် သီတဂူဆရာတော်ဘုရားကြီးအား သွားရောက်ပူဇော်ကန်တော့ခြင်း၊ ဆရာတော်ကြီး၏ သာသနာပြုလုပ်ငန်းများတွင် စုပေါင်းလှူဒါန်းခြင်း၊ လုပ်အားဒါနပြုခြင်းနှင့် အခါအားလျော်စွာ အသင်းအဖွဲ့မှ ဦးစီးသော ဓမ္မသဘင်များနှင့် ပညာဒါနဟောပြောပွဲများကို စဉ်ဆက်မပြတ် စီစဉ်ကျင်းပလျက် ရှိပါသည်။</p>
+        <p class="content-p">ကျွန်ုပ်တို့ ရန်ကုန်အခြေစိုက် ကျောင်းသားဟောင်းများအသင်းသည် နှစ်စဉ် သီတဂူဆရာတော်ဘုရားကြီးအား သွားရောက်ပူဇော်ကန်တော့ခြင်း၊ ဆရာတော်ကြီး၏ သာသနာပြုလုပ်ငန်းများတွင် Сုပေါင်းလှူဒါန်းခြင်း၊ လုပ်အားဒါနပြုခြင်းနှင့် အခါအားလျော်စွာ အသင်းအဖွဲ့မှ ဦးစီးသော ဓမ္မသဘင်များနှင့် ပညာဒါနဟောပြောပွဲများကို စဉ်ဆက်မပြတ် စီစဉ်ကျင်းပလျက် ရှိပါသည်။</p>
     </section>
 
-    <!-- Section 3: Gallery (With live image files) -->
     <section id="gallery">
         <div class="section-title">
             <h2>မှတ်တမ်းဓာတ်ပုံများ</h2>
         </div>
-        <div class="gallery-grid">
-            <!-- Item 1: sitagu3.jpeg -->
-            <div class="gallery-item">
-                <div class="gallery-img-box">
-                    <img src="sitagu3.jpeg" alt="သီတဂူဆရာတော်ကြီး ကန်တော့ပွဲ">
+        
+        <div class="slider-container">
+            <div class="slide active">
+                <img src="sitagu1.jpg" alt="သီတဂူဆရာတော်ကြီး">
+                <div class="slide-caption">
+                    <h3>သီတဂူဆရာတော်ဘုရားကြီးနှင့် အမှတ်တရ</h3>
+                    <p>သီတဂူကမ္ဘာ့ဗုဒ္ဓတက္ကသိုလ်များ၏ အဓိပတိ ဆရာတော်ကြီး၏ သာသနာပြုပုံရိပ်</p>
                 </div>
-                <div class="gallery-desc">နှစ်စဉ်ကျင်းပမြဲဖြစ်သော ဆရာတော်ကြီး ပူဇော်ကန်တော့ပွဲ မှတ်တမ်း</div>
             </div>
-            <!-- Item 2: images.jpg -->
-            <div class="gallery-item">
-                <div class="gallery-img-box">
-                    <img src="images.jpg" alt="ဆေးဝါး အလှူတော်">
+
+            <div class="slide">
+                <img src="sitagu2.jpeg" alt="ပြန်ဆုံပွဲ အမှတ်တရ">
+                <div class="slide-caption">
+                    <h3>ကျောင်းသားဟောင်းများ ပြန်ဆုံပွဲ အမှတ်တရ</h3>
+                    <p>ဘွဲ့နှင်းသဘင် စုပေါင်းမှတ်တမ်းနှင့် ရင်းနှီးပွင့်လင်းစွာ တွေ့ဆုံပွဲ</p>
                 </div>
-                <div class="gallery-desc">၂၀၂၆-၂၀၂၇ ပညာသင်နှစ် သင်တန်းဆင်းပွဲနှင့် ပညာဒါနမှတ်တမ်း</div>
             </div>
-            <!-- Item 3: sitagu2.jpeg -->
-            <div class="gallery-item">
-                <div class="gallery-img-box">
-                    <img src="sitagu2.jpeg" alt="ပြန်ဆုံပွဲ အမှတ်တရ">
+
+            <div class="slide">
+                <img src="images.jpg" alt="ပညာသင်နှစ် ပိုစတာ">
+                <div class="slide-caption">
+                    <h3>၂၀၂၆-၂၀၂၇ ပညာသင်နှစ်</h3>
+                    <p>ဒီပလိုမာ၊ B.A, M.A ဗုဒ္ဓစာပေသင်တန်းများ သင်ကြားပို့ချမှု မှတ်တမ်း</p>
                 </div>
-                <div class="gallery-desc">ကျောင်းသားဟောင်းများ ပြန်ဆုံပွဲနှင့် ရင်းနှီးပွင့်လင်းစွာ ဆွေးနွေးပွဲ</div>
             </div>
         </div>
     </section>
 
-    <!-- Section 4: Contact Us -->
     <section id="contact">
         <div class="section-title">
             <h2>ဆက်သွယ်ရန်</h2>
@@ -381,10 +382,23 @@
         </div>
     </section>
 
-    <!-- Footer Section -->
     <footer>
         <p>&copy; 2026 Sitagu Alumni Association (Yangon). All rights reserved.</p>
     </footer>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        // ၃ စက္ကန့်လျှင် တစ်ပုံနှုန်း အလိုအလျောက် လှုပ်ရှားပြောင်းလဲပါမည်
+        setInterval(nextSlide, 3000);
+    </script>
 
 </body>
 </html>
