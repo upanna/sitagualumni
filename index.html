@@ -48,22 +48,36 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 18px 0;
+            padding: 12px 0;
+        }
+
+        /* Logo Configuration with logo.png */
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            height: 55px;
+            width: auto;
+            object-fit: contain;
         }
 
         .logo h1 {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 700;
             color: var(--secondary-color);
             letter-spacing: 1px;
+            line-height: 1.2;
         }
 
         .logo span {
-            font-size: 13px;
+            font-size: 12px;
             color: #fff;
             display: block;
             font-weight: 300;
-            margin-top: -2px;
+            margin-top: 2px;
         }
 
         nav ul {
@@ -88,14 +102,14 @@
             font-weight: 500;
         }
 
-        /* Premium Hero Section */
+        /* Premium Hero Section with sitagu1.jpg background */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(92, 6, 18, 0.85)), 
-                        url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(92, 6, 18, 0.8)), 
+                        url('sitagu1.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            height: 450px;
+            height: 480px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -184,14 +198,22 @@
             transform: translateY(-5px);
         }
 
-        .gallery-img-placeholder {
-            height: 180px;
-            background-color: #f1ebd9;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: var(--primary-color);
-            font-weight: 500;
+        /* Real Image Containers */
+        .gallery-img-box {
+            height: 190px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .gallery-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-img-box img {
+            transform: scale(1.05);
         }
 
         .gallery-desc {
@@ -199,6 +221,8 @@
             font-size: 14px;
             color: var(--text-light);
             text-align: center;
+            font-weight: 500;
+            border-top: 1px solid #f9f9f9;
         }
 
         /* Contact Cards */
@@ -242,6 +266,7 @@
             .nav-container {
                 flex-direction: column;
                 gap: 15px;
+                text-align: center;
             }
             nav ul {
                 flex-wrap: wrap;
@@ -261,9 +286,13 @@
     <!-- Header & Menu Bar -->
     <header>
         <div class="nav-container">
-            <div class="logo">
-                <h1>SITAGU ALUMNI</h1>
-                <span>YANGON ASSOCIATION</span>
+            <div class="logo-box">
+                <!-- logo.png integration -->
+                <img src="logo.png" alt="Sitagu Alumni Logo" class="logo-img">
+                <div class="logo">
+                    <h1>SITAGU ALUMNI</h1>
+                    <span>YANGON ASSOCIATION</span>
+                </div>
             </div>
             <nav>
                 <ul>
@@ -277,7 +306,7 @@
         </div>
     </header>
 
-    <!-- Hero Banner Section -->
+    <!-- Hero Banner Section with sitagu1.jpg -->
     <div class="hero" id="home">
         <div class="hero-text">
             <h2>သီတဂူကမ္ဘာ့ဗုဒ္ဓတက္ကသိုလ် (ရန်ကုန်)</h2>
@@ -301,22 +330,31 @@
         <p class="content-p">ကျွန်ုပ်တို့ ရန်ကုန်အခြေစိုက် ကျောင်းသားဟောင်းများအသင်းသည် နှစ်စဉ် သီတဂူဆရာတော်ဘုရားကြီးအား သွားရောက်ပူဇော်ကန်တော့ခြင်း၊ ဆရာတော်ကြီး၏ သာသနာပြုလုပ်ငန်းများတွင် စုပေါင်းလှူဒါန်းခြင်း၊ လုပ်အားဒါနပြုခြင်းနှင့် အခါအားလျော်စွာ အသင်းအဖွဲ့မှ ဦးစီးသော ဓမ္မသဘင်များနှင့် ပညာဒါနဟောပြောပွဲများကို စဉ်ဆက်မပြတ် စီစဉ်ကျင်းပလျက် ရှိပါသည်။</p>
     </section>
 
-    <!-- Section 3: Gallery -->
+    <!-- Section 3: Gallery (With live image files) -->
     <section id="gallery">
         <div class="section-title">
             <h2>မှတ်တမ်းဓာတ်ပုံများ</h2>
         </div>
         <div class="gallery-grid">
+            <!-- Item 1: sitagu3.jpeg -->
             <div class="gallery-item">
-                <div class="gallery-img-placeholder">သီတဂူဆရာတော်ကြီး ကန်တော့ပွဲ</div>
+                <div class="gallery-img-box">
+                    <img src="sitagu3.jpeg" alt="သီတဂူဆရာတော်ကြီး ကန်တော့ပွဲ">
+                </div>
                 <div class="gallery-desc">နှစ်စဉ်ကျင်းပမြဲဖြစ်သော ဆရာတော်ကြီး ပူဇော်ကန်တော့ပွဲ မှတ်တမ်း</div>
             </div>
+            <!-- Item 2: images.jpg -->
             <div class="gallery-item">
-                <div class="gallery-img-placeholder">ဆေးဝါး အလှူတော်</div>
-                <div class="gallery-desc">ကျောင်းသားဟောင်းများ၏ စုပေါင်းလှူဒါန်း မှတ်တမ်းပုံရိပ်</div>
+                <div class="gallery-img-box">
+                    <img src="images.jpg" alt="ဆေးဝါး အလှူတော်">
+                </div>
+                <div class="gallery-desc">၂၀၂၆-၂၀၂၇ ပညာသင်နှစ် သင်တန်းဆင်းပွဲနှင့် ပညာဒါနမှတ်တမ်း</div>
             </div>
+            <!-- Item 3: sitagu2.jpeg -->
             <div class="gallery-item">
-                <div class="gallery-img-placeholder">ပြန်ဆုံပွဲ အမှတ်တရ</div>
+                <div class="gallery-img-box">
+                    <img src="sitagu2.jpeg" alt="ပြန်ဆုံပွဲ အမှတ်တရ">
+                </div>
                 <div class="gallery-desc">ကျောင်းသားဟောင်းများ ပြန်ဆုံပွဲနှင့် ရင်းနှီးပွင့်လင်းစွာ ဆွေးနွေးပွဲ</div>
             </div>
         </div>
